@@ -4,7 +4,7 @@ import "videojs-youtube";
 
 interface PlayerProps {
   /**
-   *
+   * The order of technology to use for the player.
    */
   techOrder: string[];
   /**
@@ -20,11 +20,11 @@ interface PlayerProps {
    */
   sources: {
     /**
-     * The source url.
+     * The source URL.
      */
     src: string;
     /**
-     * The type of source
+     * The type of source.
      */
     type: string;
   }[];
@@ -36,6 +36,7 @@ interface PlayerProps {
  */
 const Player = (props: PlayerProps) => {
   const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
+  
   const onVideo = useCallback((el: HTMLVideoElement) => {
     setVideoEl(el);
   }, []);
@@ -45,8 +46,13 @@ const Player = (props: PlayerProps) => {
       return;
     }
 
-    // our video.js player
-    const player = videojs(videoEl, props);
+    // Initialize Video.js player
+    const player = videojs(videoEl, {
+      techOrder: props.techOrder,
+      autoplay: props.autoplay,
+      controls: props.controls,
+      sources: props.sources,
+    });
 
     return () => {
       player.dispose();
@@ -55,7 +61,7 @@ const Player = (props: PlayerProps) => {
 
   return (
     <>
-      <h1>The implementation below is using react functions</h1>
+      <h1>Лхагвасүрэн хайранд итгээрэй</h1>
       <div data-vjs-player>
         <video ref={onVideo} className="video-js" playsInline />
       </div>

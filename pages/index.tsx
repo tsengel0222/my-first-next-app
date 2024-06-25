@@ -1,5 +1,4 @@
 import Player from "../components/Player";
-import PlayerCSS from "../components/PlayerCss";
 
 export default function Index() {
   const videoJsOptions = {
@@ -8,7 +7,7 @@ export default function Index() {
     controls: true,
     sources: [
       {
-        src: "https://www.youtube.com/watch?v=IxQB14xVas0",
+        src: "https://www.youtube.com/watch?v=ZSRf3sIMCG0&list=RD-soxLpiWs_0&index=3",
         type: "video/youtube",
       },
     ],
@@ -17,7 +16,6 @@ export default function Index() {
   return (
     <>
       <Player {...videoJsOptions} />
-      <PlayerCSS />
     </>
   );
 }
