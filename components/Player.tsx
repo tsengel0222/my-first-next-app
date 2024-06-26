@@ -61,7 +61,7 @@ const Player = (props: PlayerProps) => {
 
   return (
     <>
-      <h1>Лхагвасүрэн хайранд итгээрэй</h1>
+      <h1>Лхагвасүрэн: "хайранд итгээрэй"</h1>
       <div data-vjs-player>
         <video ref={onVideo} className="video-js" playsInline />
       </div>
